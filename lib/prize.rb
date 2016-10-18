@@ -3,11 +3,23 @@
 # and open the template in the editor.
 
 class Prize
-  @@levels
-  @@treasures
-  
-  def initialize(treasures, levels)
-    @levels = levels;
-    @treasures = treasures;
-  end
+	@@levels
+	@@treasures
+	
+	def initialize(treasures, levels)
+		@levels = levels;
+		@treasures = treasures;
+	end
+	
+	attr_accessor:levels
+	attr_accessor:treasures
+	
+	def winlevelsfrom(lvl)
+		@@return
+		if (@levels > lvl)
+			@return = true
+		end
+		return
+	end
+	
 end
