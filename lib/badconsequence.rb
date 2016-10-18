@@ -3,14 +3,6 @@
 # and open the template in the editor.
 
 class BadConsequence
-	@@text
-	@@levels
-	@@nVisibleTreasures
-	@@nHiddenTreasure
-	@@death
-	@@specificHiddenTreasures = Array.new
-	@@specificVisibleTreasures = Array.new
-	
 	#Se define el contructor básico
 	def initialize(text, levels, nVisibleTreasures, nHiddenTreasures, death)
 		@text = text
@@ -18,13 +10,20 @@ class BadConsequence
 		@nVisibleTreasures = nVisibleTreasures
 		@nHiddenTreasures = nHiddenTreasures
 		@death = death
+		@specificVisibleTreasures = Array.new
+		@specificHiddenTreasures = Array.new
 	end
 	
 	def self.texto_y_bool(text, death)
 		nuevoObjeto = allocate
 		
 		@text = text
+		@levels
+		@nVisibleTreasures
+		@nHiddenTreasures
 		@death = death
+		@specificVisibleTreasures = Array.new
+		@specificHiddenTreasures = Array.new
 		
 		nuevoObjeto #return
 	end
@@ -34,6 +33,9 @@ class BadConsequence
 		
 		@text = text
 		@levels = levels
+		@nVisibleTreasures
+		@nHiddenTreasures
+		@death
 		@specificHiddenTreasures = specificHiddenTreasures
 		@specificVisibleTresures = specificVisibleTreasures
 		
@@ -46,7 +48,10 @@ class BadConsequence
 		@text = text
 		@levels = levels
 		@nVisibletreasures = nVisibleTreasures
+		@nHiddenTreasures
+		@death
 		@specificHiddenTreasures = specificHiddenTreasures
+		@specificVisibleTreasures = Array.new
 		
 		nuevoObjeto #return
 	end
@@ -57,7 +62,10 @@ class BadConsequence
 		@text = text
 		@levels = levels
 		@specificVisibleTreasures = specificVisibleTreasures
+		@specificHiddenTreasures = Array.new
 		@nHiddenTreasures = nHiddenTreasures
+		@nVisibleTreasures
+		@death
 		
 		nuevoObjeto #return
 	end
