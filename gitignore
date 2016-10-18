@@ -80,8 +80,9 @@ build-iPhoneSimulator/
 
 
 ### NetBeans ###
-nbproject/private/
+nbproject/
 nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+spec/
