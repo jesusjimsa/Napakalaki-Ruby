@@ -66,7 +66,14 @@ class BadConsequence
 		correcto = levels > 0 && nVisibleTreasures == 0 && nHiddenTreasures
 	end
 	
-	def loseTreasure(TreasureKind treasure, )
+	###################			Método loseTreasure						####################
+	############# Hay que averiguar cómo se pasa un objeto a un método	#######################
+	
+	def toString
+		puts "Text = " + text + "\nLevels = " + levels + "\nVisible Treasures = "
+				+ nVisibleTreasures + "\nHidden Treasures = " + nHiddenTreasures
+				+"\nDeath = " + death
+	end
 	
 	#Se definen los consultores y modificadores
 	attr_accesor :text
