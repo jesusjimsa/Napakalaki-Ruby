@@ -2,6 +2,10 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-module TreasureKind
-    
+class TreasureKind
+    ARMOR = 1
+	ONEHAND = 2
+	BOTHHANS = 3
+	HELMET = 4
+	SHOES = 5
 end
