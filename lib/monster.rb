@@ -3,7 +3,6 @@
 # and open the template in the editor.
 
 class Monster
-<<<<<<< HEAD
 	@@name
 	@@combatLevel
 	@@bc
@@ -22,8 +21,6 @@ class Monster
 		@prize = monstruo.prize
 	end
 	
-	
-=======
   @@name
   @@combatLevel
   @@bc
@@ -41,7 +38,5 @@ class Monster
     @bc = monstruo.bc
     @prize = monstruo.prize
   end
-  
-  
->>>>>>> cd071a1a1619656fdb381cd13cd4013d62618524
+	
 end
