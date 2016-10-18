@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/macos,ruby
+# Created by https://www.gitignore.io/api/macos,ruby,netbeans
 
 ### macOS ###
 *.DS_Store
@@ -77,3 +77,11 @@ build-iPhoneSimulator/
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
+
+
+### NetBeans ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
