@@ -3,7 +3,6 @@
 # and open the template in the editor.
 
 class Prize
-<<<<<<< HEAD
 	@@levels
 	@@treasures
 	
@@ -23,7 +22,6 @@ class Prize
 		return
 	end
 	
-=======
   @@levels
   @@treasures
   
@@ -43,5 +41,4 @@ class Prize
     return
   end
   
->>>>>>> cd071a1a1619656fdb381cd13cd4013d62618524
 end
