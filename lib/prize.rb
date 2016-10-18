@@ -10,4 +10,16 @@ class Prize
     @levels = levels;
     @treasures = treasures;
   end
+  
+  attr_accessor:levels
+  attr_accessor:treasures
+  
+  def winlevelsfrom(lvl)
+    @@return
+    if (@levels > lvl)
+      @return = true
+    end
+    return
+  end
+  
 end
