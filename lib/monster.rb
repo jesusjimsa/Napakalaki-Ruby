@@ -7,6 +7,7 @@ class Monster
 	@@combatLevel
 	@@bc
 	@@prize
+	
 	def initialize(name, level, bc, prize)
 		@name = name
 		@level = level
@@ -14,29 +15,11 @@ class Monster
 		@prize = prize
 	end
 	
-	def initialize(monstruo)
+	def self.copia(monstruo)
 		@name = monstruo.name
 		@combatLevel = monstruo.combatLevel
 		@bc = monstruo.bc
 		@prize = monstruo.prize
 	end
-	
-  @@name
-  @@combatLevel
-  @@bc
-  @@prize
-  def initialize(name, level, bc, prize)
-    @name = name
-    @level = level
-    @bc = bc
-    @prize = prize
-  end
-  
-  def initialize(monstruo)
-    @name = monstruo.name
-    @combatLevel = monstruo.combatLevel
-    @bc = monstruo.bc
-    @prize = monstruo.prize
-  end
-	
+
 end
