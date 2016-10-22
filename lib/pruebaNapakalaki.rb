@@ -1,4 +1,3 @@
-
 #Array para guardar los monstruos
 @@monster = Array.new
 
