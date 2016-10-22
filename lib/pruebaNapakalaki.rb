@@ -2,7 +2,7 @@
 @@monster = Array.new
 
 def nivelSuperior(lista, lvl)
-	@devolver = Array.new
+	devolver = Array.new
 
 	for i in 0..lista.size do
 		if lista[i].combatLevel > lvl then
