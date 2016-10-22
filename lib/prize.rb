@@ -19,6 +19,9 @@ class Prize
 	end
 	
 	def toString
-		puts "Treasures = " + treasures + "\nLevels = " + levels
+		"Tesoros ganados: #{@treasures}\nNiveles ganados: #{@levels}"
 	end
+	
+	#El método new tiene visibilidad privada
+	private_class_method :new
 end

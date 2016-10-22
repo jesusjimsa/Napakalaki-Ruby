@@ -3,9 +3,9 @@
 # and open the template in the editor.
 
 class TreasureKind
-    ARMOR = 1
-	ONEHAND = 2
-	BOTHHANS = 3
-	HELMET = 4
-	SHOES = 5
+    ARMOR = :armor
+	ONEHAND = :onehand
+	BOTHHANS = :bothhans
+	HELMET = :helmet
+	SHOES = :shoes
 end

@@ -14,7 +14,7 @@ class BadConsequence
 		@specificHiddenTreasures = Array.new
 	end
 	
-	def self.texto_y_bool(text, death)
+	def self.newDeath(text, death)
 		nuevoObjeto = allocate
 		
 		@text = text
@@ -28,7 +28,7 @@ class BadConsequence
 		nuevoObjeto #return
 	end
 	
-	def self.dos_arrays(text, levels, specificHiddenTreasures, specificVisibleTreasures)
+	def self.newLevelSpecificTreasures(text, levels, specificHiddenTreasures, specificVisibleTreasures)
 		nuevoObjeto = allocate
 		
 		@text = text
@@ -42,7 +42,7 @@ class BadConsequence
 		nuevoObjeto #return
 	end
 	
-	def self.array_hidden(text, levels, nVisibleTreasures, specificHiddenTreasures)
+	def self.newLevelNumberOfTreasures(text, levels, nVisibleTreasures, specificHiddenTreasures)
 		nuevoObjeto = allocate
 		
 		@text = text
@@ -77,10 +77,9 @@ class BadConsequence
 	###################			Método loseTreasure						####################
 	############# Hay que averiguar cómo se pasa un objeto a un método	#######################
 	
-	def toString
-		puts "Text = " + text + "\nLevels = " + levels + "\nVisible Treasures = "
-				+ nVisibleTreasures + "\nHidden Treasures = " + nHiddenTreasures
-				+"\nDeath = " + death
+	def to_s
+		"Text: #{@text}\nLevels: #{@levels}\nVisibleTreasures: #{@nVisibleTreasures}\n
+		HiddenTreasures: #{@nHiddenTreasures}\nDeath: #{@death}"
 	end
 	
 	#Se definen los consultores y modificadores
@@ -93,7 +92,7 @@ class BadConsequence
 	attr_reader :specificHiddenTreasures
 	attr_reader :specificVisibleTreasures
 	
-	
-	
+	#El método new tiene visibilidad privada
+	private_class_method :new
 	
 end
