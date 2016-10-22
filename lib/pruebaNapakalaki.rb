@@ -3,6 +3,7 @@
 
 def nivelSuperior(lista, lvl)
 	@devolver = Array.new
+
 	for i in 0..lista.size do
 		if lista[i].combatLevel > lvl then
 			devolver.push(lista[i])
@@ -14,30 +15,37 @@ end
 
 def onlyLoseLevels(lista)
 	devolver = Array.new
+	
 	for i in 0..lista.size do
 		if lista[i].onlyLoseLevels() then
 			devolver.push(lista[i])
 		end
 	end
+	
 	devolver #return
 end
 
 def winLevelsFrom (lista, level)
 	devolver = Array.new
+	
 	for i in 0..lista.size do
 		if lista[i].winLevelsFrom(level) then
 			devolver.push(lista[i])
 		end
 	end
+	
 	devolver #return
 end
 
 def loseTreasure(lista, treasure, visible)
+	devolver = Array.new
+	
 	for i in 0..lista.size do
 		if lista[i].loseTreasure(treasure, visible) then
 			devolver.push(lista[i])
 		end
 	end
+	
 	devolver #return
 end
 #Contrucción de los monstruos
