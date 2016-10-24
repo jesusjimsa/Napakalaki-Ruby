@@ -1,8 +1,16 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
-
+require './treasurekind'
 class BadConsequence
+  
+	#Se definen los consultores y modificadores
+	attr_accessor :text
+	attr_accessor :levels
+	attr_accessor :death
+	
+	attr_reader :nVisibleTreasures
+	attr_reader :nHiddenTreasures
+	attr_reader :specificHiddenTreasures
+	attr_reader :specificVisibleTreasures
+  
 	#Se define el contructor básico
 	def initialize(text, levels, nVisibleTreasures, nHiddenTreasures, death)
 		@text = text
@@ -81,16 +89,6 @@ class BadConsequence
 		"Text: #{@text}\nLevels: #{@levels}\nVisibleTreasures: #{@nVisibleTreasures}\n
 		HiddenTreasures: #{@nHiddenTreasures}\nDeath: #{@death}"
 	end
-	
-	#Se definen los consultores y modificadores
-	attr_accesor :text
-	attr_accesor :levels
-	attr_accesor :death
-	
-	attr_reader :nVisibleTreasures
-	attr_reader :nHiddenTreasures
-	attr_reader :specificHiddenTreasures
-	attr_reader :specificVisibleTreasures
 	
 	#El método new tiene visibilidad privada
 	private_class_method :new
