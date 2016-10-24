@@ -1,3 +1,4 @@
+require './monster'
 #Array para guardar los monstruos
 @@monster = Array.new
 
@@ -48,42 +49,43 @@ def loseTreasure(lista, treasure, visible)
 	
 	devolver #return
 end
+
 #Contrucción de los monstruos
 
 # 3 Byakhees de bonanza
 prize = Prize.new(2,1)
-badConsequence = BadConsequence.newLevelNumberOfTreasures('Pierdes tu armadura visible y otra oculta', 0,[TrearureKind::ARMOR],[TrearureKind::ARMOR])
+badConsequence = BadConsequence.newLevelNumberOfTreasures('Pierdes tu armadura visible y otra oculta', 0,[TreasureKind::ARMOR],[TreasureKind::ARMOR])
 @@monsters << Monster.new('3 Byakhees de bonanza', 8, badConsequence, prize)
 
 # Tenochtitlan
 prize = Prize.new(1,1)
-badConsequence = BadConsequence.newLevelNumberOfTreasures('Embobados con el lindo primigenio te descartas de tu casco visible', 0, [TrearureKind::HELMET], 0)
+badConsequence = BadConsequence.newLevelNumberOfTreasures('Embobados con el lindo primigenio te descartas de tu casco visible', 0, [TreasureKind::HELMET], 0)
 @@monster << Monster.new('Tenochtitlan', 2, badConsequence, prize)
 
 # El sopor de Dunwich
 prize = Prize.new(1,1)
-badConsequence = BadConsequence.newLevelNumberOfTreasures('El primordial bostezo contagioso. Pierdes el calzado visible', 0, [TrearureKind::SHOES], 0)
+badConsequence = BadConsequence.newLevelNumberOfTreasures('El primordial bostezo contagioso. Pierdes el calzado visible', 0, [TreasureKind::SHOES], 0)
 @@monster << Monster.new('El sopor de Dunwich', 2, badConsequence, prize)
 
 # Demonios de Magaluf
 prize = Prize.new(4,1)
-badConsequence = BadConsequence.newLevelNumberOfTreasures('Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta', [TrearureKind::ONEHAND], [TrearureKind::ONEHAND])
+badConsequence = BadConsequence.newLevelNumberOfTreasures('Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta', [TreasureKind::ONEHAND], [TreasureKind::ONEHAND])
 @@monster << Monster.new('Demonios de Magaluf', 2, badConsequence, prize)
 
 # El gorrón en el umbral
 prize = Prize.new(3,1)
 badConsequence = BadConsequence.newLevelNumberOfTreasures('Pierdes todos tus tesoros visibles', 0, (TODOS) ,0)
-@@monster << Monster.new('El gorrón en el umbral', 13, badConsequence, prize)
+@@monster << Monster.new('El gorron en el umbral', 13, badConsequence, prize)
 
 # H.P. Munchcraft
 prize = Prize.new(2, 1)
-badConsequence = BadConsequence.newLevelNumberOfTreasures('Pierdes la armadura visible', 0, [TrearureKind::ONEHAND], 0)
+badConsequence = BadConsequence.newLevelNumberOfTreasures('Pierdes la armadura visible', 0, [TreasureKind::ONEHAND], 0)
 @@monster << Monster.new('H.P. Munchcraft', 6, badConsequence, prize)
 
 # Necrófago
 prize = Prize.new(1,1)
 badConsequence = BadConsequence.newLevelNumberOfTreasures('Sientes bichos bajo la ropa. Descarta la armadura visible', 0, [TreasureKind::ARMOR], 0)
-@@monster << Monster.new('Necrófago', 13, badConsequence, prize)
+@@monster << Monster.new('Necrofago', 13, badConsequence, prize)
 
 # El rey de rosado
 prize = Prize.new(4,2)
@@ -133,7 +135,7 @@ badConsequence = BadConsequence.newLevelNumberOfTreasures('La quinta directiva p
 # El espía sordo
 prize.new(1,1)
 badConsequence = BadConsequence.newLevelNumberOfTreasures('Te asusta en la noche. Pierdes un casco visible', 0, [TreasureKind::HELMET], 0)
-@@monsters << Monster.new('El espía sordo', 5, badConsequence, prize)
+@@monsters << Monster.new('El espia sordo', 5, badConsequence, prize)
 
 # Tongue
 prize.new(2,1)
@@ -148,21 +150,21 @@ badConsequence = BadConsequence.newLevelNumberOfTreasures('Te faltan manos parat
 puts "Lista de monstruos con lvl mayor de 10\n"
 nivelSuperior(monsters, 10)
 
-puts "\nLista monstruos que tengan un mal rollo que implique sólo pérdida deniveles\n"
+puts "\nLista monstruos que tengan un mal rollo que implique solo perdida de niveles\n"
 onlyLoseLevels(monsters)
 
 puts "\nLista de monstruos que implican una ganancia de niveles superior a 1 nivel\n"
 winLevelsFrom(monsters)
 
-puts "Lista de monstruos que tengan un mal rollo que suponga la pérdida de manos"
+puts "Lista de monstruos que tengan un mal rollo que suponga la perdida de manos"
 loseTreasure(monsters, [TreasureKind::ONEHAND], visible)
 loseTreasure(monsters, [TreasureKind::BOTHHANDS], visible)
 
-puts "Lista de monstruos que tengan un mal rollo que suponga la pérdida de la armadura"
+puts "Lista de monstruos que tengan un mal rollo que suponga la perdida de la armadura"
 loseTreasure(monsters, [TreasureKind::ARMOR], visible)
 
-puts "Lista de monstruos que tengan un mal rollo que suponga la pérdida del casco"
+puts "Lista de monstruos que tengan un mal rollo que suponga la perdida del casco"
 loseTreasure(monsters, [TreasureKind::HELMET], visible)
 
-puts "Lista de monstruos que tengan un mal rollo que suponga la pérdida de los zapatos"
+puts "Lista de monstruos que tengan un mal rollo que suponga la perdida de los zapatos"
 loseTreasure(monsters, [TreasureKind::SHOES], visible)

@@ -1,8 +1,13 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
-
+require './badconsequence'
+require './prize'
 class Monster
+  
+ 	#Consultores
+	attr_reader :name
+	attr_reader :combatLevel
+	attr_reader :bc
+	attr_reader :prize
+  
 	#Constructores
 	def initialize(name, level, bc, prize)
 		@name = name
@@ -21,14 +26,6 @@ class Monster
 		
 		nuevoObjeto #return
 	end
-	
-	
-	
-	#Consultores
-	attr_reader :name
-	attr_reader :combatLevel
-	attr_reader :bc
-	attr_reader :prize
 	
 	def onlyLoseLevels
 		bc.onlyLoseLevels
