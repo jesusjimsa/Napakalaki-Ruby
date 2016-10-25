@@ -80,7 +80,7 @@ build-iPhoneSimulator/
 
 
 ### NetBeans ###
-nbproject/
+/nbproject/
 nbbuild/
 dist/
 nbdist/
