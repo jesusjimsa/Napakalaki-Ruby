@@ -1,6 +1,7 @@
 require './monster'
 require './prize'
 require './badconsequence'
+
 #Array para guardar los monstruos
 @@monsters = Array.new
 
