@@ -44,5 +44,5 @@ class Monster
 	end
 	
 	#El método new tiene visibilidad privada
-	private_class_method :new
+	#private_class_method :new
 end

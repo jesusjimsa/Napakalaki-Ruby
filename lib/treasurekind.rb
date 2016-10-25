@@ -5,7 +5,7 @@
 class TreasureKind
     ARMOR = :armor
 	ONEHAND = :onehand
-	BOTHHANS = :bothhans
+	BOTHHANDS = :bothhands
 	HELMET = :helmet
 	SHOES = :shoes
 end
