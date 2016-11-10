@@ -1,9 +1,9 @@
 class CardDealer
 	def intitialize
-		@@unusedMonsters
-		@@usedMonsters
-		@@unusedTreasures
-		@@usedTreasures
+		@@unusedMonsters = Array.new
+		@@usedMonsters = Array.new
+		@@unusedTreasures = Array.new
+		@@usedTreasures = Array.new
 	end
 	
 	def initTreasureCardDeck
@@ -138,11 +138,11 @@ class CardDealer
 	end
 	
 	def shuffleTreasures
-		
+		@@unusedTreasures.shuffle!
 	end
 	
 	def shuffleMonsters
-		
+		@@unusedMonsters.shuffle!
 	end
 	
 	def giveTreasureBack(t)
