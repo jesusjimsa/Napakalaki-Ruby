@@ -43,6 +43,14 @@ class Monster
 		"Name: #{@name}\nCombat level: #{@combatLevel}"
 	end
 	
+	def getLevelsGained
+		@bc.levels
+	end
+	
+	def getTreasuresGained
+		@bc.nVisibleTreasures
+	end
+	
 	#El método new tiene visibilidad privada
 	#private_class_method :new
 end

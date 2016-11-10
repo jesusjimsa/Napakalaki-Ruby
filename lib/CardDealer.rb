@@ -7,37 +7,37 @@ class CardDealer
 	end
 	
 	def initTreasureCardDeck
-		@@unusedTreasures << Treasure.new("Si,mi amo!", 4, TreasureKind:HELMET)
-		@@unusedTreasures << Treasure.new("Botas de investigacion", 3, TreasureKind:SHOES)
-		@@unusedTreasures << Treasure.new("Capucha de Cthulhu", 3, TreasureKind:HELMET)
-		@@unusedTreasures << Treasure.new("A prueba de babas", 2, TreasureKind:ARMOR)
-		@@unusedTreasures << Treasure.new("Botas de lluvia acida", 1, TreasureKind:BOTHHANDS)
-		@@unusedTreasures << Treasure.new("Casco minero", 2, TreasureKind:HELMET)
-		@@unusedTreasures << Treasure.new("Ametralladora ACME", 4, TreasureKind:BOTHHANDS)
-		@@unusedTreasures << Treasure.new("Camiseta de la ETSIIT", 1, TreasureKind:ARMOR)
-		@@unusedTreasures << Treasure.new("Clavo de rail ferroviario", 3, TreasureKind:ONEHAND)
-		@@unusedTreasures << Treasure.new("Cuchillo de sushi arcano", 2, TreasureKind:ONEHAND)
-		@@unusedTreasures << Treasure.new("Fez alopodo", 3, TreasureKind:HELMET)
-		@@unusedTreasures << Treasure.new("Hacha prehistorica", 2, TreasureKind:ONEHAND)
-		@@unusedTreasures << Treasure.new("El aparato del Pr. Tesla", 4, TreasureKind:ARMOR)
-		@@unusedTreasures << Treasure.new("Gaita", 4, TreasureKind:BOTHHANDS)
-		@@unusedTreasures << Treasure.new("Insecticida", 2, TreasureKind:ONEHAND)
-		@@unusedTreasures << Treasure.new("Escopeta de 3 caniones", 4, TreasureKind:BOTHHANDS)
-		@@unusedTreasures << Treasure.new("Garabato mistico", 2, TreasureKind:ONEHAND)
-		@@unusedTreasures << Treasure.new("La rebeca metalica", 2, TreasureKind:ARMOR)
-		@@unusedTreasures << Treasure.new("Lanzallamas", 4, TreasureKind:BOTHHANDS)
-		@@unusedTreasures << Treasure.new("Necrocomicon", 1, TreasureKind:ONEHAND)
-		@@unusedTreasures << Treasure.new("Necronomicon", 5, TreasureKind:BOTHHANDS)
-		@@unusedTreasures << Treasure.new("Linterna a 2 manos", 3, TreasureKind:BOTHHANDS)
-		@@unusedTreasures << Treasure.new("Necrognomicon", 2, TreasureKind:ONEHAND)
-		@@unusedTreasures << Treasure.new("Necrotelecom", 2, TreasureKind:HELMET)
-		@@unusedTreasures << Treasure.new("Mazo de los antiguos", 3, TreasureKind:ONEHAND)
-		@@unusedTreasures << Treasure.new("NecroPlayboycon", 3, TreasureKind:ONEHAND)	#¿Va con segundas lo de una mano con Playboy? Jajaja
-		@@unusedTreasures << Treasure.new("Porra preternatural", 2, TreasureKind:ONEHAND)
-		@@unusedTreasures << Treasure.new("Shogulador", 1, TreasureKind:BOTHHANDS)
-		@@unusedTreasures << Treasure.new("Varita de atizamiento", 3, TreasureKind:ONEHAND)
-		@@unusedTreasures << Treasure.new("Tentaculo de pega", 2, TreasureKind:HELMET)
-		@@unusedTreasures << Treasure.new("Zapato deja-amigos", 1, TreasureKind:SHOES)
+		@@unusedTreasures << Treasure.new("Si,mi amo!", 4, TreasureKind::HELMET)
+		@@unusedTreasures << Treasure.new("Botas de investigacion", 3, TreasureKind::SHOES)
+		@@unusedTreasures << Treasure.new("Capucha de Cthulhu", 3, TreasureKind::HELMET)
+		@@unusedTreasures << Treasure.new("A prueba de babas", 2, TreasureKind::ARMOR)
+		@@unusedTreasures << Treasure.new("Botas de lluvia acida", 1, TreasureKind::BOTHHANDS)
+		@@unusedTreasures << Treasure.new("Casco minero", 2, TreasureKind::HELMET)
+		@@unusedTreasures << Treasure.new("Ametralladora ACME", 4, TreasureKind::BOTHHANDS)
+		@@unusedTreasures << Treasure.new("Camiseta de la ETSIIT", 1, TreasureKind::ARMOR)
+		@@unusedTreasures << Treasure.new("Clavo de rail ferroviario", 3, TreasureKind::ONEHAND)
+		@@unusedTreasures << Treasure.new("Cuchillo de sushi arcano", 2, TreasureKind::ONEHAND)
+		@@unusedTreasures << Treasure.new("Fez alopodo", 3, TreasureKind::HELMET)
+		@@unusedTreasures << Treasure.new("Hacha prehistorica", 2, TreasureKind::ONEHAND)
+		@@unusedTreasures << Treasure.new("El aparato del Pr. Tesla", 4, TreasureKind::ARMOR)
+		@@unusedTreasures << Treasure.new("Gaita", 4, TreasureKind::BOTHHANDS)
+		@@unusedTreasures << Treasure.new("Insecticida", 2, TreasureKind::ONEHAND)
+		@@unusedTreasures << Treasure.new("Escopeta de 3 caniones", 4, TreasureKind::BOTHHANDS)
+		@@unusedTreasures << Treasure.new("Garabato mistico", 2, TreasureKind::ONEHAND)
+		@@unusedTreasures << Treasure.new("La rebeca metalica", 2, TreasureKind::ARMOR)
+		@@unusedTreasures << Treasure.new("Lanzallamas", 4, TreasureKind::BOTHHANDS)
+		@@unusedTreasures << Treasure.new("Necrocomicon", 1, TreasureKind::ONEHAND)
+		@@unusedTreasures << Treasure.new("Necronomicon", 5, TreasureKind::BOTHHANDS)
+		@@unusedTreasures << Treasure.new("Linterna a 2 manos", 3, TreasureKind::BOTHHANDS)
+		@@unusedTreasures << Treasure.new("Necrognomicon", 2, TreasureKind::ONEHAND)
+		@@unusedTreasures << Treasure.new("Necrotelecom", 2, TreasureKind::HELMET)
+		@@unusedTreasures << Treasure.new("Mazo de los antiguos", 3, TreasureKind::ONEHAND)
+		@@unusedTreasures << Treasure.new("NecroPlayboycon", 3, TreasureKind::ONEHAND)	#¿Va con segundas lo de una mano con Playboy? Jajaja
+		@@unusedTreasures << Treasure.new("Porra preternatural", 2, TreasureKind::ONEHAND)
+		@@unusedTreasures << Treasure.new("Shogulador", 1, TreasureKind::BOTHHANDS)
+		@@unusedTreasures << Treasure.new("Varita de atizamiento", 3, TreasureKind::ONEHAND)
+		@@unusedTreasures << Treasure.new("Tentaculo de pega", 2, TreasureKind::HELMET)
+		@@unusedTreasures << Treasure.new("Zapato deja-amigos", 1, TreasureKind::SHOES)
 	end
 	
 	def initMonsterCardDeck
@@ -137,5 +137,19 @@ class CardDealer
 		@@unusedMonsters << Monster.new("Bicefalo", 21, badConsequence, prize)
 	end
 	
+	def shuffleTreasures
+		
+	end
 	
+	def shuffleMonsters
+		
+	end
+	
+	def giveTreasureBack(t)
+		@@usedTreasures << t
+	end
+	
+	def giveMonsterBack(m)
+		@@usedMonsters << m
+	end
 end

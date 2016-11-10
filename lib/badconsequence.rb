@@ -78,11 +78,11 @@ class BadConsequence
 		nuevoObjeto #return
 	end
 	
-	def onlyLoseLevels()
+	def onlyLoseLevels
 		(correcto = levels > 0 && nVisibleTreasures == 0 && nHiddenTreasures == 0)
 	end
 	
-	def isEmpty()
+	def isEmpty
 		(empty = nHiddenTreasures == 0 && nVisibleTreasures == 0)
 	end
 	
