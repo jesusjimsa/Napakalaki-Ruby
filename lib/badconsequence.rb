@@ -79,11 +79,11 @@ class BadConsequence
 	end
 	
 	def onlyLoseLevels()
-		correcto = levels > 0 && nVisibleTreasures == 0 && nHiddenTreasures == 0
+		(correcto = levels > 0 && nVisibleTreasures == 0 && nHiddenTreasures == 0)
 	end
 	
 	def isEmpty()
-		empty = nHiddenTreasures == 0 && nVisibleTreasures == 0
+		(empty = nHiddenTreasures == 0 && nVisibleTreasures == 0)
 	end
 	
 	###################			Método loseTreasure						####################

@@ -34,7 +34,7 @@ class Player
 	end
   
 	def getCombatLevel()
-        @level + #bonus de los tesoros equipados
+        @level
 	end
   
 	def bringToLife()
@@ -89,3 +89,4 @@ class Player
 		(@hiddenTreasures.size != 0 && @visibleTreasures.size != 0)    
 	end
 	
+end
