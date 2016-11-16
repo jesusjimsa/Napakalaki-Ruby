@@ -5,6 +5,13 @@ require "./treasurekind"
 
 #Array para guardar los monstruos
 @@monsters = Array.new
+@@players = Array.new
+
+def initPlayers(names)
+	for i in 0..(names.size) do
+		@@players <<Player.new(names)
+	end
+end
 
 def nivelSuperior(lista, lvl)
 	devolver = Array.new
