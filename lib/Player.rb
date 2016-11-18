@@ -53,9 +53,7 @@ class Player
 	end
   
 	def dieIfNoTreasures
-		if (@hiddenTreasures == 0 && @visibleTreasures == 0)
-			@dead = true
-		end
+			@dead = (@hiddenTreasures == 0 && @visibleTreasures == 0)	#return
 	end
   
 	def validState
@@ -73,15 +71,52 @@ class Player
 	end
   
 	def canISteal()
-		@canISteal
+		@canISteal	#return
 	end
   
 	def haveStolen()
-		@canISteal = false
+		@canISteal = false	#return
 	end
   
 	def canYouGiveMeATreasure
-		(@hiddenTreasures.size != 0 && @visibleTreasures.size != 0)    
+		(@hiddenTreasures.size != 0 && @visibleTreasures.size != 0)   #return 
 	end
 	
+	def canMakeTreasureVisible(t)
+		can_make_it = true
+		
+		if(t == TreasureKind::BOTHHANDS)
+			i = 0
+			
+			while(i < @visibleTreasures.size && can_make_visible)
+				can_make_it = (@visibleTreasures[i] != TreasureKind::BOTHHAND && @visibleTreasures[i] != TreasureKind::ONEHAND)
+				i += 1
+			end
+		elsif(t == TreasureKind::ONEHAND)
+			total_one_hand = 0
+			i = 0
+			
+			while(i < @visibleTreasures.size && can_make_it)
+				if (@visibleTreasures[i] == TreasureKind::ONEHAND)
+					total_one_hand += 1
+				end
+				
+				can_make_it = (@visibleTreasures[i] != TreasureKind::BOTHHAND && total_one_hand < 2)
+				i += 1
+			end
+		else
+			i = 0
+			
+			while(i < @visibleTreasures.size && can_make_it)
+				can_make_it = (@visibleTreasures[i] != t)
+				i += 1
+			end
+		end
+		
+		can_make_it	#return
+	end
+	
+	def giveMeATreasure
+		@hiddenTreasures[rand(@hiddenTreasures.size)]	#return
+	end
 end
