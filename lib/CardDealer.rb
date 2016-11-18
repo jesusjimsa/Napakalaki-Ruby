@@ -1,3 +1,5 @@
+include Singleton
+
 class CardDealer
 	def intitialize
 		@@unusedMonsters = Array.new

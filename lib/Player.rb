@@ -1,4 +1,3 @@
-import Array
 
 class Player
   
@@ -59,12 +58,8 @@ class Player
 		end
 	end
   
-	def validState()
-		if (@pendingBadConsequence.isEmpty() && @hiddenTreasures.size <= 4)
-			true
-		else
-			false
-		end
+	def validState
+		(@pendingBadConsequence.isEmpty() && @hiddenTreasures.size <= 4)	#return
 	end
   
 	def howManyVisibleTreasures(tKind)
