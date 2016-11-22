@@ -1,3 +1,5 @@
+include Singleton
+
 class CardDealer
 	def intitialize
 		@@unusedMonsters = Array.new
@@ -151,5 +153,33 @@ class CardDealer
 	
 	def giveMonsterBack(m)
 		@@usedMonsters << m
+	end
+	
+	def nextTreasure
+		if(@@unusedTreasures.size != 0)
+			siguiente = @@unusedTreasures[@@unusedTreasures.size]
+			@@unusedTreasures.pop
+		else
+			@@unusedTreasures = @@usedTreasures
+			@@unusedTreasures.shuffle!
+			
+			siguiente = @@unusedTreasures[@@unusedTreasures.size]
+		end
+		
+		siguiente	#return
+	end
+	
+	def nextMonster
+		if(@@unusedMonsters.size != 0)
+			siguiente = @@unusedMonsters[@@unusedMonsters.size]
+			@@unusedMonsters.pop
+		else
+			@@unusedMonsters = @@usedMonsters
+			@@unusedMonsters.shuffle!
+			
+			siguiente = @@unusedMonsters[@@unusedMonsters.size]
+		end
+		
+		siguiente	#return
 	end
 end
