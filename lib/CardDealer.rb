@@ -157,13 +157,13 @@ class CardDealer
 	
 	def nextTreasure
 		if(@@unusedTreasures.size != 0)
-			siguiente = @@unusedTreasures[@@unusedTreasures.size]
+			siguiente = @@unusedTreasures[@@unusedTreasures.size - 1]
 			@@unusedTreasures.pop
 		else
 			@@unusedTreasures = @@usedTreasures
 			@@unusedTreasures.shuffle!
 			
-			siguiente = @@unusedTreasures[@@unusedTreasures.size]
+			siguiente = @@unusedTreasures[@@unusedTreasures.size - 1]
 		end
 		
 		siguiente	#return
@@ -171,13 +171,13 @@ class CardDealer
 	
 	def nextMonster
 		if(@@unusedMonsters.size != 0)
-			siguiente = @@unusedMonsters[@@unusedMonsters.size]
+			siguiente = @@unusedMonsters[@@unusedMonsters.size - 1]
 			@@unusedMonsters.pop
 		else
 			@@unusedMonsters = @@usedMonsters
 			@@unusedMonsters.shuffle!
 			
-			siguiente = @@unusedMonsters[@@unusedMonsters.size]
+			siguiente = @@unusedMonsters[@@unusedMonsters.size - 1]
 		end
 		
 		siguiente	#return
