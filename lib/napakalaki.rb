@@ -18,7 +18,7 @@ class Napakalaki
 	
 	def initPlayer(names)
 		for i in 0..(names.size) do
-			@@players <<Player.new(names)
+			@@players << Player.new(names)
 		end
 	end
 	
@@ -70,32 +70,57 @@ class Napakalaki
 			@@players[i].enemy = @@players[aleatorio]
 		end
 	end
-#	
-#
-#	def developCombat
-#		
-#	end
-#	
-#	def discardVisibleTreasures(treasures)
-#		
-#	end
-#	
-#	def discardHiddenTreasures(treasures)
-#		
-#	end
-#	
+	
+	def developCombat
+		combatResult = @@currentPlayer.combat(@@currentMonster)
+		@@dealer.giveMonsterBack(@@currentMonster)
+		
+		combatResult	#return
+	end
+	
+	def discardVisibleTreasures(treasures)
+		for i in 0..treasures.size-1
+			treasure = treasures[i]
+			@@currentPlayer.discardVisibleTreasure(treasure)
+			@@dealer.giveTreasureBack(treasure)
+		end
+	end
+	
+	def discardHiddenTreasures(treasures)
+		for i in 0..treasures.size-1
+			treasure = treasures[i]
+			@@currentPlayer.dicardHiddenTreasure(treasure)
+			@@dealer.giveTreasureBack(treasure)
+		end
+	end
+	
 #	def makeTreasuresVisible(treasures)
 #		
 #	end
-#	
-#	def initGame(players)
-#		
-#	end
-#	
-#	def nextTurn
-#		
-#	end
-#	
+	
+	def initGame(players)
+		initPlayer(players)
+		setEnemies
+		nextTurn
+		@@dealer.initCards
+	end
+	
+	def nextTurn
+		stateOK = nextTurnAllowed
+		
+		if(stateOK)
+			@@currentMonster = @@dealer.nextMonster
+			@@currentPlayer = nextPlayer
+			dead = @@currentPlayer.isDead
+			
+			if(dead)
+				@@players.initTreasures
+			end
+		end
+		
+		stateOK		#return
+	end
+	
 	
 	def endOfGame(result)
 		(result == CombatResult::WINGAME)	#return
