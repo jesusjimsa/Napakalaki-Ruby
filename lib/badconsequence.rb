@@ -86,6 +86,24 @@ class BadConsequence
 		(empty = nHiddenTreasures == 0 && nVisibleTreasures == 0)
 	end
 	
+	def substractVisibleTreasure(t)
+		for i in 0..nVisibleTreasures
+			if (specificVisibleTreasures[i] == t.getType)
+				nVisibleTreasures -= 1
+				specificVisibleTreasures.remove(t.getType)
+			end
+		end
+	end
+	
+	def substractHiddenTreasure(t)
+		for i in 0..nHiddenTreasures
+			if (specificHiddenTreasures[i] == t.getType)
+				nHiddenTreasures -= 1
+				specificHiddenTreasures.remove(t.getType)
+			end
+		end
+	end
+	
 	###################			Método loseTreasure						####################
 	############# Hay que averiguar cómo se pasa un objeto a un método	#######################
 	
