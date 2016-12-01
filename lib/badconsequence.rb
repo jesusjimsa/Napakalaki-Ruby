@@ -79,33 +79,63 @@ class BadConsequence
 	end
 	
 	def onlyLoseLevels
-		(correcto = levels > 0 && nVisibleTreasures == 0 && nHiddenTreasures == 0)
+		(@levels > 0 && @nVisibleTreasures == 0 && @nHiddenTreasures == 0)
 	end
 	
 	def isEmpty
-		(empty = nHiddenTreasures == 0 && nVisibleTreasures == 0)
+		(@nHiddenTreasures == 0 && @nVisibleTreasures == 0)
 	end
 	
 	def substractVisibleTreasure(t)
-		for i in 0..nVisibleTreasures
-			if (specificVisibleTreasures[i] == t.getType)
-				nVisibleTreasures -= 1
-				specificVisibleTreasures.remove(t.getType)
+		for i in 0..@nVisibleTreasures
+			if (@specificVisibleTreasures[i] == t.getType)
+				@nVisibleTreasures -= 1
+				@specificVisibleTreasures.remove(t.getType)
 			end
 		end
 	end
 	
 	def substractHiddenTreasure(t)
-		for i in 0..nHiddenTreasures
-			if (specificHiddenTreasures[i] == t.getType)
-				nHiddenTreasures -= 1
-				specificHiddenTreasures.remove(t.getType)
+		for i in 0..@nHiddenTreasures
+			if (@specificHiddenTreasures[i] == t.getType)
+				@nHiddenTreasures -= 1
+				@specificHiddenTreasures.remove(t.getType)
 			end
 		end
 	end
 	
-	###################			Método loseTreasure						####################
-	############# Hay que averiguar cómo se pasa un objeto a un método	#######################
+	def adjustToFitTreasureLists(v, h)
+		num_v = v.size
+		num_h = h.size
+		nVisibleTreasures = @nVisibleTreasures
+		nHiddentreasures = @nHiddenTreasures
+		specificVisible = @specificVisibleTreasures
+		specificHidden = @specificHiddenTreasures
+		
+		if(num_v < @nVisibleTreasures)
+			nVisibleTreasures = num_v
+		end
+		
+		if(num_h < @nHiddenTreasures)
+			nHiddenTreasures = num_h
+		end
+		
+		for i in 0..@specificVisibleTreasures.size
+			if(specificVisible[i] != v[i])
+				specificVisible.delete_at(i)
+				
+				i -= 1
+			end
+		end
+		
+		for i in 0..@specificHiddenTreasures.size
+			if(specificHidden[i] != h[i])
+				specificHidden.delete_at(i)
+				
+				i -= 1
+			end
+		end
+	end
 	
 	def to_s
 		"Text: #{@text}\nLevels: #{@levels}\nVisibleTreasures: #{@nVisibleTreasures}\n
