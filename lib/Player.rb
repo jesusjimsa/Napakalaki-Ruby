@@ -119,4 +119,87 @@ class Player
 	def giveMeATreasure
 		@hiddenTreasures[rand(@hiddenTreasures.size)]	#return
 	end
+	
+	def applyPrize(m)
+		nLevels = m.getLevelsGained
+		incrementLevels(nLevels)
+		nTreasures = m.getTreasuresGained
+		
+		if(nTreasures > 0)
+			dealer = CardDealer.instance
+			
+			for i in 1..nTreasures
+				treasure = dealer.nextTreasure
+				
+				@hiddenTreasures << treasure
+			end
+		end
+	end
+	
+	def applyBadConsequence(m)
+		badConsequence = m.bc
+		nLevels = badConsequence.levels
+		
+		decrementLevels(nLevels)
+		
+		pendingBad = adjustToFitTreasureLists(@visibleTreasures, @hiddenTreasures)
+		
+		@pendingBadConsequence = pendingBad
+	end
+	
+	def stealTreasure
+		canI = canISteal
+		treasure = nil
+		
+		if(canI)
+			canYou = enemy.canYouGiveMeATreasure
+			
+			if(canYou)
+				treasure = enemy.giveMeATreasure
+				
+				@hiddenTreasures << treasure
+				
+				haveStolen
+			end
+		end
+		
+		treasure	#return
+	end
+	
+	def discardAllTreasures
+		visibleList = Array.new
+		hiddenList = Array.new
+		
+		for i in 0..@visibleTreasures.size-1
+			visibleList << @visibleTreasures[i]
+		end
+		
+		for i in 0..@hiddenTreasures.size-1
+			hiddenList << @hiddenTreasures[i]
+		end
+		
+		for i in 0..@visibleTreasures.size-1
+			discardVisibleTreasure(visibleList[i])
+		end
+	end
+	
+	def dicardVisibleTreasure(t)
+		@visibleTreasures.delete(t)
+		
+		if(@pendingBadConsequence != nil && !@pendingBadConsequence.isEmpty)
+			@peningBadConsequence.substractVisibleTreasure(t)
+		end
+		
+		dieIfNoTreasures
+	end
+	
+	def dicardHiddenTreasure(t)
+		@hiddenTreasures.delete(t)
+		
+		if(@pendingBadConsequence != nil && !@pendingBadConsequence.isEmpty)
+			@peningBadConsequence.substractHiddenTreasure(t)
+		end
+		
+		dieIfNoTreasures
+	end
 end
