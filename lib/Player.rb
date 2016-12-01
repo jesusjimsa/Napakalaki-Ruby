@@ -202,4 +202,29 @@ class Player
 		
 		dieIfNoTreasures
 	end
+	
+	def initTreasures
+		dealer = CardDealer.instance
+		dice = Dice.instance
+		bringToLife
+		
+		treasure = dealer.nextTreasure
+		@hiddenTreasure << treasure
+		
+		number = dice.nextNumber
+		
+		if(number > 1)
+			treasure = dealer.nextTreasure
+			@hiddenTreasure << treasure
+			
+			number = dice.nextNumber
+		end
+		
+		if(number == 6)
+			treasure = dealer.nextTreasure
+			@hiddenTreasure << treasure
+			
+			number = dice.nextNumber
+		end
+	end
 end
