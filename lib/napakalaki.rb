@@ -94,9 +94,12 @@ class Napakalaki
 		end
 	end
 	
-#	def makeTreasuresVisible(treasures)
-#		
-#	end
+	def makeTreasuresVisible(treasures)
+		for i in 0..treasures.size-1
+			t = CardDealer.nextTreasure
+			makeTreasureVisible(t)
+		end
+	end
 	
 	def initGame(players)
 		initPlayer(players)
