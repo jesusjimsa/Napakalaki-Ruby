@@ -135,6 +135,10 @@ class BadConsequence
 				i -= 1
 			end
 		end
+		
+		bc = BadConsequence.newLevelSpecificTreasures(@text, 0, specificVisible, specificHidden)
+		
+		bc	#return
 	end
 	
 	def to_s
