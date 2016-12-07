@@ -2,9 +2,11 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-include Singleton
+require 'singleton'
 
 class Dice
+	include Singleton
+	
 	def initialize
 		@@number
 	end

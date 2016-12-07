@@ -2,23 +2,26 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-include Singleton
+require 'singleton'
+require './Player'
 
 class Napakalaki
+	include Singleton
+	
 	attr_reader :currentPlayer
 	attr_reader :currentMonster
 	
 	def initialize
 		@@players = Array.new
-		@@currentPlayer
-		@@currentMonster
-		@@dealer
+		@@currentPlayer = nil
+		@@currentMonster = nil
+		@@dealer = nil
 		@@primera_jugada = true
 	end
 	
 	def initPlayer(names)
 		for i in 0..(names.size) do
-			@@players << Player.new(names)
+			@@players << Player.new(names[i])
 		end
 	end
 	
@@ -58,8 +61,6 @@ class Napakalaki
 	end
 	
 	def setEnemies
-		aleatorio
-		
 		for i in 0..(@@players.size) do
 			aleatorio = rand(@@players.size)
 			
@@ -67,7 +68,7 @@ class Napakalaki
 				aleatorio = rand(@@players.size)
 			end
 			
-			@@players[i].enemy = @@players[aleatorio]
+			@@players[i].enemy = Player.new(@@players[aleatorio].name)
 		end
 	end
 	

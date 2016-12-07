@@ -1,0 +1,6 @@
+
+1. Añadir los tres ficheros .rb proporcionados a tuProyecto/lib
+ 
+2. Modificar las propiedades del proyecto para que use como Main Script el contenido del fichero EjemploMain.rb
+
+

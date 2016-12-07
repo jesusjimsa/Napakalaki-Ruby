@@ -1,6 +1,8 @@
-include Singleton
+require 'singleton'
 
 class CardDealer
+	include Singleton
+	
 	def intitialize
 		@@unusedMonsters = Array.new
 		@@usedMonsters = Array.new
