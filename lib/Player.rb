@@ -57,7 +57,9 @@ class Player
 	end
   
 	def validState
-		(@pendingBadConsequence.isEmpty() && @hiddenTreasures.size <= 4)	#return
+		estado = (@pendingBadConsequence != nil && @hiddenTreasures.size <= 4)
+		
+		estado	#return
 	end
   
 	def howManyVisibleTreasures(tKind)
