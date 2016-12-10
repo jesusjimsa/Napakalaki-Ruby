@@ -1,4 +1,5 @@
 require 'singleton'
+require './TreasureKind'
 
 class CardDealer
 	include Singleton
@@ -183,5 +184,13 @@ class CardDealer
 		end
 		
 		siguiente	#return
+	end
+	
+	def initCards
+		initTreasureCardDeck
+		shuffleTreasures
+		
+		initMonsterCardDeck
+		shuffleMonsters
 	end
 end
