@@ -25,7 +25,15 @@ class Napakalaki
 			@players << Player.new(names[i])
 		end
 	end
-	
+#	
+#	def getCurrentPlayer
+#		@currentPlayer
+#	end
+#	
+#	def getCurrentMonster
+#		@currentMonster
+#	end
+#	
 	def nextPlayer
 		siguiente = 0
 		
