@@ -82,7 +82,7 @@ class Napakalaki
 	end
 	
 	def developCombat
-		combatResult = @currentPlayer.combat(@@currentMonster)
+		combatResult = @currentPlayer.combat(@currentMonster)
 		@dealer.giveMonsterBack(@currentMonster)
 		
 		combatResult	#return
@@ -120,14 +120,15 @@ class Napakalaki
 	
 	def nextTurn
 		@currentPlayer = nextPlayer
+		
 		stateOK = nextTurnAllowed
 		
 		if(stateOK)
-			@currentMonster = @@dealer.nextMonster
+			@currentMonster = @dealer.nextMonster
 			dead = @currentPlayer.isDead
 			
 			if(dead)
-				@players.initTreasures
+				@players.initTreasures  ###@currentplayer.initTreasures???????
 			end
 		end
 		
