@@ -8,6 +8,8 @@ class Player
     attr_writer :enemy
 	attr_reader :dead
 	attr_reader :canISteal
+	attr_reader :visibleTreasures
+	attr_reader :hiddenTreasures
   
 	#Constructores
 	def initialize(name)
@@ -223,10 +225,14 @@ class Player
 		end
 		
 		if(number == 6)
-			treasure = dealer.nextTreasure
+			treasure = dealer.nextTreasureant
 			@hiddenTreasure << treasure
 			
 			number = dice.nextNumber
 		end
+	end
+	
+	def to_s
+		"#{@name}"
 	end
 end
