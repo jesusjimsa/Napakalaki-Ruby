@@ -225,7 +225,7 @@ class Player
 		end
 		
 		if(number == 6)
-			treasure = dealer.nextTreasureant
+			treasure = dealer.nextTreasurean
 			@hiddenTreasure << treasure
 			
 			number = dice.nextNumber
