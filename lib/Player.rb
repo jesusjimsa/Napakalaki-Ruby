@@ -232,6 +232,14 @@ class Player
 		end
 	end
 	
+	def getOponentLevel
+		
+	end
+	
+	def shouldConvert
+		
+	end
+	
 	def to_s
 		"#{@name}"
 	end

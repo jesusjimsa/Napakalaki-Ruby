@@ -13,6 +13,7 @@ class CardDealer
 		@usedMonsters = Array.new
 		@unusedTreasures = Array.new
 		@usedTreasures = Array.new
+		@unusedCultists = Array.new
 	end
 	
 	def initTreasureCardDeck
@@ -146,12 +147,20 @@ class CardDealer
 		@unusedMonsters << Monster.new("Bicefalo", 21, badConsequence, prize)
 	end
 	
+	def initCultistCardDeck
+		
+	end
+	
 	def shuffleTreasures
 		@unusedTreasures.shuffle!
 	end
 	
 	def shuffleMonsters
 		@unusedMonsters.shuffle!
+	end
+	
+	def shuffleCultists
+		@unusedCultists.shuffle!
 	end
 	
 	def giveTreasureBack(t)
@@ -186,8 +195,11 @@ class CardDealer
 			
 			siguiente = @unusedMonsters[@unusedMonsters.size - 1]
 		end
-		
 		siguiente	#return
+	end
+	
+	def nextCultist
+		
 	end
 	
 	def initCards
