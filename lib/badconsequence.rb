@@ -22,6 +22,20 @@ class BadConsequence
 		@specificHiddenTreasures = Array.new
 	end
 	
+	def self.newTextLevel(text, levels)
+		nuevoObjeto = allocate
+		
+		@text = text
+		@levels = levels
+		@nVisibleTreasures
+		@nHiddenTreasures
+		@death
+		@specificVisibleTreasures
+		@specificHiddenTreasures
+		
+		nuevoObjeto	#return
+	end
+	
 	def self.newDeath(text, death)
 		nuevoObjeto = allocate
 		
