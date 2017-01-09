@@ -25,15 +25,15 @@ class Napakalaki
 			@players << Player.new(names[i])
 		end
 	end
-#	
-#	def getCurrentPlayer
-#		@currentPlayer
-#	end
-#	
-#	def getCurrentMonster
-#		@currentMonster
-#	end
-#	
+	#	
+	#	def getCurrentPlayer
+	#		@currentPlayer
+	#	end
+	#	
+	#	def getCurrentMonster
+	#		@currentMonster
+	#	end
+	#	
 	def nextPlayer
 		siguiente = 0
 		
@@ -85,19 +85,19 @@ class Napakalaki
 		combatResult = @currentPlayer.combat(@currentMonster)
 		@dealer.giveMonsterBack(@currentMonster)
     
-    if (combatResult == CombatResult::LOSEANDCONVERT)
-      cultista = @dealer.nextCultist
-      cultistPlayer = CultistPlayer.new(@currentPlayer, culstista)
+		if (combatResult == CombatResult::LOSEANDCONVERT)
+			cultista = @dealer.nextCultist
+			cultistPlayer = CultistPlayer.new(@currentPlayer, culstista)
       
-      for player in @players
-        if (player.enemy == @currentPlayer)
-          player.enemy = cultistPlayer
-        end
-      end
+			for player in @players
+				if (player.enemy == @currentPlayer)
+					player.enemy = cultistPlayer
+				end
+			end
       
-      @players[@players.index(@currentPlayer)] = cultistPlayer
-      @currentPlayer = cultistPlayer
-    end
+			@players[@players.index(@currentPlayer)] = cultistPlayer
+			@currentPlayer = cultistPlayer
+		end
 		
 		combatResult	#return
 	end
