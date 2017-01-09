@@ -148,7 +148,12 @@ class CardDealer
 	end
 	
 	def initCultistCardDeck
-		
+		@unusedCultist << Cultist.new("Sectario 1", 1)
+    @unusedCultist << Cultist.new("Sectario 2", 2)
+    @unusedCultist << Cultist.new("Sectario 3", 1)
+    @unusedCultist << Cultist.new("Sectario 4", 2)
+    @unusedCultist << Cultist.new("Sectario 5", 1)
+    @unusedCultist << Cultist.new("Sectario 6", 1)
 	end
 	
 	def shuffleTreasures
@@ -199,7 +204,15 @@ class CardDealer
 	end
 	
 	def nextCultist
-		
+		if (@unusedCultist.empty?)
+      initCultistCardDeck
+      shuffleCultist
+    end
+    
+    siguiente = @unusedCultist.get(0)
+    @unusedCultist.remove(siguiente)
+    
+    siguiente #return
 	end
 	
 	def initCards

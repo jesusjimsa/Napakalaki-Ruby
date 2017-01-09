@@ -14,7 +14,7 @@ class Monster
 		@combatLevel = level
 		@bc = bc
 		@prize = prize
-		@levelChangeAgainstCultistPlayer == 0
+		@levelChangeAgainstCultistPlayer = 0
 	end
 	
 	def self.copia(monstruo)

@@ -4,11 +4,15 @@ class CultistPlayer < Player
   @@totalCultistPlayers = 0
   
   def initialize(p, c)
+    super(p)
+    @myCultistCard = c
+    @@totalCultistPlayers += 1
   end
   
-  def getCombatLevel()
-    nivel = @level
-    nivel = (nivel +
+  def getCombatLevel
+    level = super.getCombatLevel
+    level = (level + (level * 0.7) + @myCultistCard.getGainedLevels )
+    return combatLevel.to_i #return
   end
   
   def getOponentLevel(m)

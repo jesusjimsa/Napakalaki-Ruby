@@ -4,8 +4,8 @@ class Player
  	#Consultores
 	attr_reader :name
 	attr_reader :level
-    attr_writer :pendingBadConsequence
-    attr_writer :enemy
+  attr_writer :pendingBadConsequence
+  attr_writer :enemy
 	attr_reader :dead
 	attr_reader :canISteal
 	attr_reader :visibleTreasures
@@ -57,6 +57,39 @@ class Player
 	def dieIfNoTreasures
 			@dead = (@hiddenTreasures == 0 && @visibleTreasures == 0)	#return
 	end
+  
+  def combat(m)
+    myLevel = getCombatLevel
+    monsterLevel = getOponentLevel(m)
+    
+    if (!canISteal)
+      lanzar = Dice.instance.nextNumber
+      if (lanzar < 3)
+        enemyLevel = enemy.getCombatLevel
+      end
+    end
+    
+    if (myLevel > monsterLevel)
+      applyPrice(m)
+      if (level >= MAXLEVEL)
+        combatResult = CombatResult::WINGAME
+      else
+        combatResult = CombatResult::WIN
+      end
+    else
+      applyBadConsequence(m)
+      combatResult = CombatResult::LOSE
+    end
+  
+  if (combatResult == CombatResult::LOSE)
+    if (shouldConvert)
+      combatResult = CombatResult::LOSEANDCONVERT
+    end
+  end
+  
+  combatResult #return
+  
+  end
   
 	def validState
 		estado = (@pendingBadConsequence != nil && @hiddenTreasures.size <= 4)
@@ -232,12 +265,12 @@ class Player
 		end
 	end
 	
-	def getOponentLevel
-		
+	def getOponentLevel(m)
+    return m.combatLevel
 	end
 	
 	def shouldConvert
-		
+    return (Dice.instance.nextNumber == 6)
 	end
 	
 	def to_s
