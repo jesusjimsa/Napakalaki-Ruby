@@ -2,8 +2,11 @@ require 'singleton'
 require './TreasureKind'
 require './Treasure'
 require './Prize'
-require './BadConsequence'
+require './badconsequence.rb'
 require './Monster'
+require './specific_bad_consequence.rb'
+require './numeric_bad_consequence.rb'
+require './death_bad_consequence.rb'
 
 module Napakalaki
 
@@ -159,14 +162,14 @@ module Napakalaki
 			@unusedMonsters << Monster.new("Testigos Oculares", 6, badcon, prize, 2)
 			
 			# El gran Cthulhu
-			badcon = DeathBadConsequence.new("Hoy no es tu día de suerte. Mueres");
+			badcon = DeathBadConsequence.new("Hoy no es tu dia de suerte. Mueres");
 			prize = Prize.new(2, 5);
 			@unusedMonsters << Monster.new("El gran cthulhu", 20, badcon, prize, 4)
 			
 			# Serpiente político
 			badcon = NumericBadConsequence.new("Tu gobierno te recorta 2 niveles", 2, 0, 0);
 			prize = Prize.new(2, 1);
-			@unusedMonsters << Monster.new("Serpiente político", 8, badcon, prize, -2)
+			@unusedMonsters << Monster.new("Serpiente politico", 8, badcon, prize, -2)
 			
 			# Felpuggoth
 			badcon = SpecificBadConsequence.new("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas", 0, 

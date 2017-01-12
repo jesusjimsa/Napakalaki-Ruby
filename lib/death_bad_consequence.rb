@@ -1,9 +1,9 @@
-require './numeric_bad_consequence'
-require './bad_consequence'
+require './numeric_bad_consequence.rb'
+require './badconsequence.rb'
 
 module Napakalaki
 
-	class DeathBadConsequence < NumericBadconsequence
+	class DeathBadConsequence < NumericBadConsequence
 		def initialize(text = "")
 			super(text, Player.MAXLEVEL, NumericBadConsequence.MAXTREASURES, NumericBadConsequence.MAXTREASURES, true)
 		end
