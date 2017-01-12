@@ -17,11 +17,13 @@ module Napakalaki
 		#Constructores
 		def initialize(name)
 			@name = name
-			@level = 0
+			@level = 1
 			@hiddenTreasures = Array.new
 			@visibleTreasures = Array.new
 			@pendingBadConsequence = nil
 			@enemy = nil
+			@dead = true
+			@canISteal = true
 		end
 	
 		def self.copia(jugador)
@@ -62,7 +64,8 @@ module Napakalaki
 		end
   
 		def dieIfNoTreasures
-			@dead = (@hiddenTreasures == 0 && @visibleTreasures == 0)	#return
+			@dead = (@hiddenTreasures == 0 && @visibleTreasures == 0)
+			@level = 1
 		end
   
 		def combat(m)
@@ -71,6 +74,7 @@ module Napakalaki
     
 			if (!canISteal)
 				lanzar = Dice.instance.nextNumber
+				
 				if (lanzar < 3)
 					enemyLevel = enemy.getCombatLevel
 				end
@@ -106,12 +110,13 @@ module Napakalaki
   
 		def howManyVisibleTreasures(tKind)
 			cont = 0
-			for i in 0..@visibleTreasures.size
-				if (@visibleTreasures[i] == tKind)
-					cont = cont + 1
-					cont
+			for i in 0..(@visibleTreasures.size - 1)
+				if (@visibleTreasures[i].type == tKind)
+					cont += 1
 				end
 			end
+			
+			cont	#return
 		end
   
 		def canISteal()
@@ -159,6 +164,13 @@ module Napakalaki
 		
 			can_make_it	#return
 		end
+		
+		def makeTreasureVisible(t)
+			if(canMakeTreasureVisible(t))
+				@visibleTreasures << t
+				@hiddenTreasures.delete_at(@hiddenTreasures.index(t) || @hiddenTreasures.length)
+			end
+		end
 	
 		def giveMeATreasure
 			@hiddenTreasures[rand(@hiddenTreasures.size)]	#return
@@ -172,7 +184,7 @@ module Napakalaki
 			if(nTreasures > 0)
 				dealer = CardDealer.instance
 			
-				for i in 1..nTreasures
+				for i in 1..(nTreasures - 1)
 					treasure = dealer.nextTreasure
 				
 					@hiddenTreasures << treasure
