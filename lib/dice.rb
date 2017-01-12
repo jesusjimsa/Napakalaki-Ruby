@@ -4,14 +4,17 @@
 
 require 'singleton'
 
-class Dice
-	include Singleton
+module Napakalaki
+
+	class Dice
+		include Singleton
 	
-	def initialize
-		@@number
-	end
+		def initialize
+			@@number
+		end
 	
-	def nextNumber
-		@@number = rand(6) + 1
+		def nextNumber
+			@@number = rand(6) + 1
+		end
 	end
 end

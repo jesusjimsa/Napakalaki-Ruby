@@ -2,14 +2,17 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-class Treasure
-	def initialize(name, bonus, type)
-		@name = name
-		@bonus = bonus
-		@type = type
-	end
+module Napakalaki
+
+	class Treasure
+		def initialize(name, bonus, type)
+			@name = name
+			@bonus = bonus
+			@type = type
+		end
 	
-	attr_reader :name
-	attr_reader :bonus
-	attr_reader :type
+		attr_reader :name
+		attr_reader :bonus
+		attr_reader :type
+	end
 end
