@@ -5,6 +5,7 @@
 require 'singleton'
 require './Player'
 require './CardDealer'
+require './monster.rb'
 
 module Napakalaki
 
@@ -16,8 +17,8 @@ module Napakalaki
 	
 		def initialize
 			@players = Array.new
-			@currentPlayer = nil
-			@currentMonster = nil
+			@currentPlayer
+			@currentMonster
 			@dealer = CardDealer.instance
 			@primera_jugada = true
 		end

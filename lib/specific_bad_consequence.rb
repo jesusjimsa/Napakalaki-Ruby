@@ -4,7 +4,7 @@
 
 module Napakalaki
 
-	class SpecificBadConsequence
+	class SpecificBadConsequence < BadConsequence
 		def initialize(text = "", levels = 0, specificVisible = Array.new, specificHidden = Array.new)
 			super(text, levels, false)
 			
