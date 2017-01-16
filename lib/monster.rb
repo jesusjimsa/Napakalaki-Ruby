@@ -12,12 +12,13 @@ module Napakalaki
 		attr_reader :prize
   
 		#Constructores
-		def initialize(name, level, bc, prize)
+		def initialize(name, level, bc, prize, lC = 0)
 			@name = name
 			@combatLevel = level
 			@bc = bc
 			@prize = prize
-			@levelChangeAgainstCultistPlayer = 0
+			@levelChangeAgainstCultistPlayer = lC
+			@combatLevelAgainstCultistPlayer = @combatLevel + @levelChangeAgainstCultistPlayer
 		end
 	
 		def self.copia(monstruo)

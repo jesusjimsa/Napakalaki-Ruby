@@ -8,8 +8,8 @@ module Napakalaki
 	
 		@@MAXTREASURES = 10
 	
-		def initialize(text, level, nVisible, nHidden)
-			super(text, level, false)
+		def initialize(text, level, nVisible, nHidden, death = false)
+			super(text, level, death)
 		
 			@nVisibleTreasures = nVisible
 			@nHiddenTreasures = nHidden

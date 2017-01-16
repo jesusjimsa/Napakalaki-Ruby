@@ -285,11 +285,11 @@ module Napakalaki
 		end
 	
 		def getOponentLevel(m)
-			return m.combatLevel
+			m.combatLevel	#return
 		end
 	
 		def shouldConvert
-			return (Dice.instance.nextNumber == 6)
+			(Dice.instance.nextNumber == 6)	#return
 		end
 	
 		def to_s
