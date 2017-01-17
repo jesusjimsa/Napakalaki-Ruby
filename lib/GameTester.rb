@@ -45,21 +45,21 @@ module Test
 						combatResult = @game.developCombat()
 					
 						case combatResult
-						when NapakalakiGame::CombatResult::WINGAME then 
+						when Napakalaki::CombatResult::WINGAME then 
 							puts "\n\n       " + currentPlayer.getName()
 							puts "\n\n HAS GANADO LA PARTIDA"
 							#break está implícito            
-						when NapakalakiGame::CombatResult::WIN then
+						when Napakalaki::CombatResult::WIN then
 							puts "\n\n Ganaste el combate"
-						when NapakalakiGame::CombatResult::LOSE then
+						when Napakalaki::CombatResult::LOSE then
 							puts "\n\n Has perdido el combate, te toca cumplir el mal rollo"
-						when NapakalakiGame::CombatResult::LOSEANDCONVERT then
+						when Napakalaki::CombatResult::LOSEANDCONVERT then
 							puts "\n\n Has perdido el combate, y te has comvertido en sectario"
 							puts "\n No obstante, tienes que cumplir el mal rollo"
 							currentPlayer = @game.getCurrentPlayer
 						end #case
 						
-						if (combatResult != NapakalakiGame::CombatResult::WINGAME) then
+						if (combatResult != Napakalaki::CombatResult::WINGAME) then
 							begin #Hasta que se avance de turno 
 								puts "******* ******* ******* ******* ******* ******* *******"
 								puts "\n\n Turno de: " + currentPlayer.to_s()

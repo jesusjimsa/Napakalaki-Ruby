@@ -1,6 +1,7 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
+require './badconsequence.rb'
 
 module Napakalaki
 
@@ -15,19 +16,17 @@ module Napakalaki
 		def adjustToFitTreasureLists(v, h)
 			num_v = v.size
 			num_h = h.size
-			nVisibleTreasures = @nVisibleTreasures
-			nHiddentreasures = @nHiddenTreasures
 			specificVisible = @specificVisibleTreasures
 			specificHidden = @specificHiddenTreasures
-		
-			if(num_v < @nVisibleTreasures)
-				nVisibleTreasures = num_v
-			end
-		
-			if(num_h < @nHiddenTreasures)
-				nHiddenTreasures = num_h
-			end
-		
+#		
+#			if(num_v < @nVisibleTreasures)
+#				nVisibleTreasures = num_v
+#			end
+#		
+#			if(num_h < @nHiddenTreasures)
+#				nHiddenTreasures = num_h
+#			end
+#		
 			for i in 0..@specificVisibleTreasures.size
 				if(specificVisible[i] != v[i])
 					specificVisible.delete_at(i)
@@ -36,7 +35,7 @@ module Napakalaki
 				end
 			end
 		
-			for i in 0..@specificHiddenTreasures.size
+			for i in 0..(@specificHiddenTreasures.size- 1)
 				if(specificHidden[i] != h[i])
 					specificHidden.delete_at(i)
 				

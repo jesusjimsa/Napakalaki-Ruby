@@ -1,4 +1,4 @@
-require_relative 'badconsequence'
+require_relative 'badconsequence.rb'
 
 module Napakalaki
 

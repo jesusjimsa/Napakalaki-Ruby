@@ -1,3 +1,7 @@
+require './dice.rb'
+require './treasure.rb'
+require './treasurekind.rb'
+
 module Napakalaki
 
 	class Player
@@ -136,26 +140,26 @@ module Napakalaki
 		
 			if(t.type == TreasureKind::BOTHHANDS)
 				i = 0
-			
+				
 				while(i < @visibleTreasures.size && can_make_it)
-					can_make_it = (@visibleTreasures[i].type != TreasureKind::BOTHHAND && @visibleTreasures[i] != TreasureKind::ONEHAND)
+					can_make_it = (@visibleTreasures[i].type != TreasureKind::BOTHHANDS && @visibleTreasures[i] != TreasureKind::ONEHAND)
 					i += 1
 				end
 			elsif(t.type == TreasureKind::ONEHAND)
 				total_one_hand = 0
 				i = 0
-			
+				
 				while(i < @visibleTreasures.size && can_make_it)
 					if (@visibleTreasures[i].type == TreasureKind::ONEHAND)
 						total_one_hand += 1
 					end
-				
-					can_make_it = (@visibleTreasures[i].type != TreasureKind::BOTHHAND && total_one_hand < 2)
+					
+					can_make_it = (@visibleTreasures[i].type != TreasureKind::BOTHHANDS && total_one_hand < 2)
 					i += 1
 				end
 			else
 				i = 0
-			
+				
 				while(i < @visibleTreasures.size && can_make_it)
 					can_make_it = (@visibleTreasures[i].type != t.type)
 					i += 1
@@ -198,7 +202,7 @@ module Napakalaki
 		
 			decrementLevels(nLevels)
 		
-			pendingBad = adjustToFitTreasureLists(@visibleTreasures, @hiddenTreasures)
+			pendingBad = badConsequence.adjustToFitTreasureLists(@visibleTreasures, @hiddenTreasures)
 		
 			@pendingBadConsequence = pendingBad
 		end
@@ -243,7 +247,7 @@ module Napakalaki
 			@visibleTreasures.delete(t)
 		
 			if(@pendingBadConsequence != nil && !@pendingBadConsequence.isEmpty)
-				@peningBadConsequence.substractVisibleTreasure(t)
+				@pendingBadConsequence.substractVisibleTreasure(t)
 			end
 		
 			dieIfNoTreasures
@@ -253,7 +257,7 @@ module Napakalaki
 			@hiddenTreasures.delete(t)
 		
 			if(@pendingBadConsequence != nil && !@pendingBadConsequence.isEmpty)
-				@peningBadConsequence.substractHiddenTreasure(t)
+				@pendingBadConsequence.substractHiddenTreasure(t)
 			end
 		
 			dieIfNoTreasures
@@ -265,20 +269,21 @@ module Napakalaki
 			bringToLife
 		
 			treasure = dealer.nextTreasure
-			@hiddenTreasure << treasure
+			puts "Hola  #{treasure.name}"
+			@hiddenTreasures << treasure
 		
 			number = dice.nextNumber
 		
 			if(number > 1)
 				treasure = dealer.nextTreasure
-				@hiddenTreasure << treasure
+				@hiddenTreasures << treasure
 			
 				number = dice.nextNumber
 			end
 		
 			if(number == 6)
-				treasure = dealer.nextTreasurean
-				@hiddenTreasure << treasure
+				treasure = dealer.nextTreasure
+				@hiddenTreasures << treasure
 			
 				number = dice.nextNumber
 			end
