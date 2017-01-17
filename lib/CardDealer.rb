@@ -221,6 +221,7 @@ module Napakalaki
 		end
 		
 		def nextTreasure
+			puts "Tamanio = #{@unusedTreasures.size}"
 			if(@unusedTreasures.size != 0)
 				siguiente = @unusedTreasures[@unusedTreasures.size - 1]
 				@unusedTreasures.pop

@@ -10,7 +10,7 @@ module Napakalaki
 		include Singleton
 	
 		def initialize
-			@@number
+			@@number = 1
 		end
 	
 		def nextNumber

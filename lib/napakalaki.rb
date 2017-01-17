@@ -6,6 +6,7 @@ require 'singleton'
 require './Player'
 require './CardDealer'
 require './monster.rb'
+require './combat_result.rb'
 
 module Napakalaki
 
@@ -63,10 +64,10 @@ module Napakalaki
 		
 			if(@currentPlayer == nil)
 				valido = true
-			end
-		
-			if(@currentPlayer.validState)
-				valido = true
+			else
+				if(@currentPlayer.validState)
+					valido = true
+				end
 			end
 		
 			valido	#return
@@ -106,7 +107,7 @@ module Napakalaki
 		end
 	
 		def discardVisibleTreasures(treasures)
-			for i in 0..treasures.size-1
+			for i in 0..(treasures.size-1)
 				treasure = treasures[i]
 				@currentPlayer.discardVisibleTreasure(treasure)
 				@dealer.giveTreasureBack(treasure)
@@ -129,23 +130,24 @@ module Napakalaki
 		end
 	
 		def initGame(players)
+			@dealer.initCards
 			initPlayer(players)
 			setEnemies
 			nextTurn
-			@dealer.initCards
 		end
 	
 		def nextTurn
-			@currentPlayer = nextPlayer
-		
+			#@currentPlayer = nextPlayer
 			stateOK = nextTurnAllowed
 		
 			if(stateOK)
 				@currentMonster = @dealer.nextMonster
+				@currentPlayer = nextPlayer
+		
 				dead = @currentPlayer.isDead
 			
 				if(dead)
-					@players.initTreasures  ###@currentplayer.initTreasures???????
+					@currentPlayer.initTreasures  ###currentplayer.initTreasures???????
 				end
 			end
 		

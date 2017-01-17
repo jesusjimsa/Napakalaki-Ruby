@@ -2,6 +2,8 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+require './treasurekind.rb'
+
 module Napakalaki
 
 	class Treasure
@@ -9,6 +11,10 @@ module Napakalaki
 			@name = name
 			@bonus = bonus
 			@type = type
+		end
+		
+		def to_s
+			"#{@name}"
 		end
 	
 		attr_reader :name
